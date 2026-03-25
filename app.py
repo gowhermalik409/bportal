@@ -87,7 +87,7 @@ CONTACT_SUBMISSIONS = []
 # Store registered users (simulated database)
 USERS = {
     'user': {'password': 'user123', 'email': 'john.doe@example.com', 'is_admin': False},
-    'admin': {'password': 'admin123', 'email': 'admin@galaxyelectronics.com', 'is_admin': True}
+    'admin': {'password': 'admin123', 'email': 'admin@galaxyaielectronics.com', 'is_admin': True}
 }
 
 # Store user orders (simulated database)
@@ -647,8 +647,8 @@ BASE_LAYOUT = """
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Galaxy Electronics - Premium Tech Store{% endblock %}</title>
-    <link rel="stylesheet" href="/static/style.css">
+    <title>{% block title %}Galaxy AI Electronics - Premium Tech Store{% endblock %}</title>
+    <link rel="stylesheet" href="/static/css/style.css">
     <!-- VULNERABLE: Outdated library references -->
     <!-- jQuery v3.6.0 (Known vulnerabilities) -->
     <!-- Bootstrap v4.6.0 (Outdated) -->
@@ -715,23 +715,30 @@ BASE_LAYOUT = """
             </div>
             <div class="footer-section">
                 <h3>Contact</h3>
-                <p>Email: support@galaxyelectronics.com</p>
+                <p>Email: support@galaxyaielectronics.com</p>
                 <p>Phone: 1-800-GALAXY</p>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 Galaxy Electronics. All rights reserved.</p>
+            <p>&copy; 2026 Galaxy AI Electronics. All rights reserved.</p>
         </div>
     </footer>
 
-    <script src="/static/app.js"></script>
+      <!-- Multiple JavaScript files for realistic attack surface -->
+      <script src="/static/js/app.js"></script>
+      <script src="/static/js/jquery.min.js"></script>
+      <script src="/static/js/bootstrap.bundle.min.js"></script>
+      <script src="/static/js/auth.js"></script>
+      <script src="/static/js/analytics.js"></script>
+      <script src="/static/config.js"></script>
+      <!-- VULNERABILITY: Exposed secrets in JavaScript files -->
 </body>
 </html>
 """
 
-HOME_PAGE = BASE_LAYOUT.replace("{% block title %}Galaxy Electronics - Premium Tech Store{% endblock %}", "Galaxy Electronics - Home").replace("{% block content %}{% endblock %}", """
+HOME_PAGE = BASE_LAYOUT.replace("{% block title %}Galaxy AI Electronics - Premium Tech Store{% endblock %}", "Galaxy AI Electronics - Home").replace("{% block content %}{% endblock %}", """
 <div class="hero">
-    <h1>Welcome to Galaxy Electronics</h1>
+    <h1>Welcome to Galaxy AI Electronics</h1>
     <p>Discover the latest technology products at unbeatable prices</p>
     <div class="hero-buttons">
         <a href="/products" class="btn btn-primary">Shop Now</a>
@@ -761,7 +768,7 @@ HOME_PAGE = BASE_LAYOUT.replace("{% block title %}Galaxy Electronics - Premium T
 </div>
 """)
 
-PRODUCTS_PAGE = BASE_LAYOUT.replace("{% block title %}Galaxy Electronics - Premium Tech Store{% endblock %}", "Galaxy Electronics - Products").replace("{% block content %}{% endblock %}", """
+PRODUCTS_PAGE = BASE_LAYOUT.replace("{% block title %}Galaxy AI Electronics - Premium Tech Store{% endblock %}", "Galaxy AI Electronics - Products").replace("{% block content %}{% endblock %}", """
 <div class="container">
     <div style="margin-bottom: 2rem;">
         <h1>All Products</h1>
@@ -793,7 +800,7 @@ PRODUCTS_PAGE = BASE_LAYOUT.replace("{% block title %}Galaxy Electronics - Premi
 </div>
 """)
 
-PRODUCT_DETAIL_PAGE = BASE_LAYOUT.replace("{% block title %}Galaxy Electronics - Premium Tech Store{% endblock %}", "{{ product.name }} - Galaxy Electronics").replace("{% block content %}{% endblock %}", """
+PRODUCT_DETAIL_PAGE = BASE_LAYOUT.replace("{% block title %}Galaxy AI Electronics - Premium Tech Store{% endblock %}", "{{ product.name }} - Galaxy AI Electronics").replace("{% block content %}{% endblock %}", """
 <div class="container">
     <div style="margin-bottom: 1rem;">
         <a href="/products" style="color: var(--primary); text-decoration: none;">&larr; Back to Products</a>
@@ -851,7 +858,7 @@ PRODUCT_DETAIL_PAGE = BASE_LAYOUT.replace("{% block title %}Galaxy Electronics -
 </div>
 """)
 
-SEARCH_RESULTS_PAGE = BASE_LAYOUT.replace("{% block title %}Galaxy Electronics - Premium Tech Store{% endblock %}", "Search Results - Galaxy Electronics").replace("{% block content %}{% endblock %}", """
+SEARCH_RESULTS_PAGE = BASE_LAYOUT.replace("{% block title %}Galaxy AI Electronics - Premium Tech Store{% endblock %}", "Search Results - Galaxy AI Electronics").replace("{% block content %}{% endblock %}", """
 <div class="container">
     <div style="margin-bottom: 1rem;">
         <a href="/products" style="color: var(--primary); text-decoration: none;">&larr; Back to Products</a>
@@ -888,7 +895,7 @@ SEARCH_RESULTS_PAGE = BASE_LAYOUT.replace("{% block title %}Galaxy Electronics -
 </div>
 """)
 
-LOGIN_PAGE = BASE_LAYOUT.replace("{% block title %}Galaxy Electronics - Premium Tech Store{% endblock %}", "Login - Galaxy Electronics").replace("{% block content %}{% endblock %}", """
+LOGIN_PAGE = BASE_LAYOUT.replace("{% block title %}Galaxy AI Electronics - Premium Tech Store{% endblock %}", "Login - Galaxy AI Electronics").replace("{% block content %}{% endblock %}", """
 <div class="container">
     <div class="form-container">
         <h1 style="text-align: center; margin-bottom: 2rem;">Login</h1>
@@ -916,7 +923,7 @@ LOGIN_PAGE = BASE_LAYOUT.replace("{% block title %}Galaxy Electronics - Premium 
 </div>
 """)
 
-REGISTER_PAGE = BASE_LAYOUT.replace("{% block title %}Galaxy Electronics - Premium Tech Store{% endblock %}", "Register - Galaxy Electronics").replace("{% block content %}{% endblock %}", """
+REGISTER_PAGE = BASE_LAYOUT.replace("{% block title %}Galaxy AI Electronics - Premium Tech Store{% endblock %}", "Register - Galaxy AI Electronics").replace("{% block content %}{% endblock %}", """
 <div class="container">
     <div class="form-container">
         <h1 style="text-align: center; margin-bottom: 2rem;">Create Account</h1>
@@ -956,7 +963,7 @@ REGISTER_PAGE = BASE_LAYOUT.replace("{% block title %}Galaxy Electronics - Premi
 </div>
 """)
 
-DASHBOARD_PAGE = BASE_LAYOUT.replace("{% block title %}Galaxy Electronics - Premium Tech Store{% endblock %}", "Dashboard - Galaxy Electronics").replace("{% block content %}{% endblock %}", """
+DASHBOARD_PAGE = BASE_LAYOUT.replace("{% block title %}Galaxy AI Electronics - Premium Tech Store{% endblock %}", "Dashboard - Galaxy AI Electronics").replace("{% block content %}{% endblock %}", """
 <div class="container">
     <h1 style="margin-bottom: 2rem;">Welcome, {{ session.get('username', 'User') }}!</h1>
     
@@ -1008,7 +1015,7 @@ DASHBOARD_PAGE = BASE_LAYOUT.replace("{% block title %}Galaxy Electronics - Prem
 </div>
 """)
 
-ORDERS_PAGE = BASE_LAYOUT.replace("{% block title %}Galaxy Electronics - Premium Tech Store{% endblock %}", "My Orders - Galaxy Electronics").replace("{% block content %}{% endblock %}", """
+ORDERS_PAGE = BASE_LAYOUT.replace("{% block title %}Galaxy AI Electronics - Premium Tech Store{% endblock %}", "My Orders - Galaxy AI Electronics").replace("{% block content %}{% endblock %}", """
 <div class="container">
     <div style="margin-bottom: 1rem;">
         <a href="/dashboard" style="color: var(--primary); text-decoration: none;">&larr; Back to Dashboard</a>
@@ -1047,7 +1054,7 @@ ORDERS_PAGE = BASE_LAYOUT.replace("{% block title %}Galaxy Electronics - Premium
 </div>
 """)
 
-ADMIN_PAGE = BASE_LAYOUT.replace("{% block title %}Galaxy Electronics - Premium Tech Store{% endblock %}", "Admin Portal - Galaxy Electronics").replace("{% block content %}{% endblock %}", """
+ADMIN_PAGE = BASE_LAYOUT.replace("{% block title %}Galaxy AI Electronics - Premium Tech Store{% endblock %}", "Admin Portal - Galaxy AI Electronics").replace("{% block content %}{% endblock %}", """
 <div class="container">
     <h1 style="margin-bottom: 2rem;">Admin Portal <span class="admin-badge">ADMIN</span></h1>
     
@@ -1141,7 +1148,7 @@ ADMIN_PAGE = BASE_LAYOUT.replace("{% block title %}Galaxy Electronics - Premium 
 </div>
 """)
 
-CART_PAGE = BASE_LAYOUT.replace("{% block title %}Galaxy Electronics - Premium Tech Store{% endblock %}", "Shopping Cart - Galaxy Electronics").replace("{% block content %}{% endblock %}", """
+CART_PAGE = BASE_LAYOUT.replace("{% block title %}Galaxy AI Electronics - Premium Tech Store{% endblock %}", "Shopping Cart - Galaxy AI Electronics").replace("{% block content %}{% endblock %}", """
 <div class="container">
     <h1 style="margin-bottom: 2rem;">Shopping Cart</h1>
     
@@ -1192,13 +1199,13 @@ CART_PAGE = BASE_LAYOUT.replace("{% block title %}Galaxy Electronics - Premium T
 </div>
 """)
 
-ABOUT_PAGE = BASE_LAYOUT.replace("{% block title %}Galaxy Electronics - Premium Tech Store{% endblock %}", "About Us - Galaxy Electronics").replace("{% block content %}{% endblock %}", """
+ABOUT_PAGE = BASE_LAYOUT.replace("{% block title %}Galaxy AI Electronics - Premium Tech Store{% endblock %}", "About Us - Galaxy AI Electronics").replace("{% block content %}{% endblock %}", """
 <div class="container">
-    <h1 style="text-align: center; margin-bottom: 3rem;">About Galaxy Electronics</h1>
+    <h1 style="text-align: center; margin-bottom: 3rem;">About Galaxy AI Electronics</h1>
     
     <div style="max-width: 800px; margin: 0 auto; line-height: 1.8;">
         <p style="font-size: 1.125rem; margin-bottom: 1.5rem;">
-            Galaxy Electronics is your premier destination for the latest technology products. Since 2020, we've been committed to providing our customers with cutting-edge electronics at competitive prices.
+            Galaxy AI Electronics is your premier destination for the latest technology products. Since 2020, we've been committed to providing our customers with cutting-edge electronics at competitive prices.
         </p>
         
         <h2 style="margin-bottom: 1rem;">Our Mission</h2>
@@ -1217,7 +1224,7 @@ ABOUT_PAGE = BASE_LAYOUT.replace("{% block title %}Galaxy Electronics - Premium 
         
         <h2 style="margin-bottom: 1rem;">Contact Information</h2>
         <p>
-            <strong>Email:</strong> support@galaxyelectronics.com<br>
+            <strong>Email:</strong> support@galaxyaielectronics.com<br>
             <strong>Phone:</strong> 1-800-GALAXY<br>
             <strong>Address:</strong> 123 Tech Boulevard, Silicon Valley, CA 94025
         </p>
@@ -1225,7 +1232,7 @@ ABOUT_PAGE = BASE_LAYOUT.replace("{% block title %}Galaxy Electronics - Premium 
 </div>
 """)
 
-CONTACT_PAGE = BASE_LAYOUT.replace("{% block title %}Galaxy Electronics - Premium Tech Store{% endblock %}", "Contact Us - Galaxy Electronics").replace("{% block content %}{% endblock %}", """
+CONTACT_PAGE = BASE_LAYOUT.replace("{% block title %}Galaxy AI Electronics - Premium Tech Store{% endblock %}", "Contact Us - Galaxy AI Electronics").replace("{% block content %}{% endblock %}", """
 <div class="container">
     <div style="max-width: 600px; margin: 0 auto;">
         <h1 style="text-align: center; margin-bottom: 2rem;">Contact Us</h1>
@@ -1261,14 +1268,14 @@ CONTACT_PAGE = BASE_LAYOUT.replace("{% block title %}Galaxy Electronics - Premiu
         
         <div style="margin-top: 2rem; text-align: center; color: var(--secondary);">
             <p>Or reach us directly:</p>
-            <p><strong>Email:</strong> support@galaxyelectronics.com</p>
+            <p><strong>Email:</strong> support@galaxyaielectronics.com</p>
             <p><strong>Phone:</strong> 1-800-GALAXY</p>
         </div>
     </div>
 </div>
 """)
 
-CHECKOUT_PAGE = BASE_LAYOUT.replace("{% block title %}Galaxy Electronics - Premium Tech Store{% endblock %}", "Checkout - Galaxy Electronics").replace("{% block content %}{% endblock %}", """
+CHECKOUT_PAGE = BASE_LAYOUT.replace("{% block title %}Galaxy AI Electronics - Premium Tech Store{% endblock %}", "Checkout - Galaxy AI Electronics").replace("{% block content %}{% endblock %}", """
 <div class="container">
     <div style="margin-bottom: 1rem;">
         <a href="/cart" style="color: var(--primary); text-decoration: none;">&larr; Back to Cart</a>
@@ -1621,6 +1628,115 @@ def serve_css():
 @app.route('/static/app.js')
 def serve_js():
     return APP_JS_CONTENT, 200, {'Content-Type': 'text/javascript'}
+
+# This file contains the directory listing function to be added to app.py
+
+# VULNERABILITY: Directory Listing Enabled
+@app.route('/static/')
+@app.route('/static/<path:subpath>/')
+def directory_listing(subpath=''):
+    import os
+    from flask import send_from_directory
+
+    base_path = os.path.join(os.path.dirname(__file__), 'static')
+    if subpath:
+        requested_path = os.path.join(base_path, subpath)
+    else:
+        requested_path = base_path
+
+    if os.path.isdir(requested_path):
+        items = []
+        try:
+            for item in sorted(os.listdir(requested_path)):
+                item_path = os.path.join(requested_path, item)
+                is_dir = os.path.isdir(item_path)
+                size = os.path.getsize(item_path) if not is_dir else 0
+                items.append({
+                    'name': item,
+                    'is_dir': is_dir,
+                    'size': size,
+                    'modified': os.path.getmtime(item_path)
+                })
+        except PermissionError:
+            return "Access Denied", 403
+
+        breadcrumbs = []
+        parts = subpath.split('/') if subpath else []
+        for i, part in enumerate(parts):
+            breadcrumbs.append({
+                'name': part,
+                'path': '/'.join(parts[:i+1])
+            })
+
+        rows_html = ''
+        for item in items:
+            name_class = 'dir' if item['is_dir'] else 'file'
+            slash = '/' if item['is_dir'] else ''
+            type_label = 'Directory' if item['is_dir'] else 'File'
+            link = ('../' + item['name'] + slash) if subpath else (item['name'] + slash)
+
+            rows_html += '            <tr>\n'
+            rows_html += '                <td><a href="{}"><span class="{}">{}</span>{}</a></td>\n'.format(link, name_class, item['name'], slash)
+            rows_html += '                <td>{}</td>\n'.format(type_label)
+            rows_html += '                <td class="size">{} bytes</td>\n'.format(item['size'])
+            rows_html += '                <td class="modified">{}</td>\n'.format(item['modified'])
+            rows_html += '            </tr>\n'
+
+        breadcrumb_html = '<div class="breadcrumb"><a href="/static/">[root]</a>'
+        for b in breadcrumbs:
+            breadcrumb_html += " / <a href='/static/{}'>{}</a>".format(b['path'], b['name'])
+        breadcrumb_html += '</div>'
+
+        listing_page = '''<!DOCTYPE html>
+<html>
+<head>
+    <title>Index of /static/''' + subpath + '''</title>
+    <style>
+        body { font-family: monospace; background: #1a1a1a; color: #00ff00; padding: 20px; }
+        h1 { color: #00ff00; border-bottom: 1px solid #00ff00; padding-bottom: 10px; }
+        .breadcrumb { margin-bottom: 20px; }
+        .breadcrumb a { color: #00ff00; text-decoration: none; margin: 0 5px; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 8px; text-align: left; border-bottom: 1px solid #333; }
+        th { background: #333; }
+        a { color: #00ff00; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .dir { color: #ffff00; font-weight: bold; }
+        .file { color: #00ffff; }
+        .size { color: #ff00ff; }
+        .modified { color: #888; }
+    </style>
+</head>
+<body>
+    <h1>Index of /static/''' + subpath + '''</h1>
+    ''' + breadcrumb_html + '''
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Size</th>
+                <th>Modified</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><a href="..">../</a></td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+            </tr>
+''' + rows_html + '''        </tbody>
+    </table>
+    <p style="margin-top: 20px; color: #ff0000;">
+        ⚠️ VULNERABILITY: Directory listing is enabled. This exposes sensitive files and configuration.
+    </p>
+</body>
+</html>'''
+        return listing_page
+
+    return send_from_directory(base_path, subpath)
 
 if __name__ == '__main__':
     print("=" * 60)
